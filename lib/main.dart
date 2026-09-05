@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'screens/closet/closet_screen.dart';
+
 void main() {
   runApp(const DressingApp());
 }
@@ -12,9 +14,7 @@ class DressingApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Dressing',
-      theme: ThemeData(
-        useMaterial3: true,
-      ),
+      theme: ThemeData(useMaterial3: true),
       home: const MainScreen(),
     );
   }
@@ -33,7 +33,7 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<Widget> pages = const [
     OutfitsPage(),
-    ClosetPage(),
+    ClosetScreen(),
     InspirationPage(),
   ];
 
@@ -75,7 +75,6 @@ class _MainScreenState extends State<MainScreen> {
   }
 }
 
-
 // ─────────────────────────────
 // OUTFITS PAGE
 // ─────────────────────────────
@@ -89,19 +88,12 @@ class OutfitsPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'My Outfits',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
 
       body: const Center(
-        child: Text(
-          'No outfits yet',
-          style: TextStyle(
-            fontSize: 18,
-          ),
-        ),
+        child: Text('No outfits yet', style: TextStyle(fontSize: 18)),
       ),
 
       floatingActionButton: FloatingActionButton(
@@ -114,13 +106,12 @@ class OutfitsPage extends StatelessWidget {
   }
 }
 
-
 // ─────────────────────────────
 // CLOSET PAGE
 // ─────────────────────────────
 
-class ClosetPage extends StatelessWidget {
-  const ClosetPage({super.key});
+class ClosetScreen extends StatelessWidget {
+  const ClosetScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -128,24 +119,19 @@ class ClosetPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'My Closet',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
 
       body: const Center(
         child: Text(
           'Your clothes will appear here',
-          style: TextStyle(
-            fontSize: 18,
-          ),
+          style: TextStyle(fontSize: 18),
         ),
       ),
     );
   }
 }
-
 
 // ─────────────────────────────
 // INSPIRATION PAGE
@@ -160,22 +146,16 @@ class InspirationPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'Inspiration',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
 
       body: const Center(
         child: Text(
           'Find outfit inspiration here',
-          style: TextStyle(
-            fontSize: 18,
-          ),
+          style: TextStyle(fontSize: 18),
         ),
       ),
     );
   }
-
-  
 }
