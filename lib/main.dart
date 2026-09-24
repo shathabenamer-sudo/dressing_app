@@ -110,29 +110,6 @@ class OutfitsPage extends StatelessWidget {
 // CLOSET PAGE
 // ─────────────────────────────
 
-class ClosetScreen extends StatelessWidget {
-  const ClosetScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'My Closet',
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-      ),
-
-      body: const Center(
-        child: Text(
-          'Your clothes will appear here',
-          style: TextStyle(fontSize: 18),
-        ),
-      ),
-    );
-  }
-}
-
 // ─────────────────────────────
 // INSPIRATION PAGE
 // ─────────────────────────────

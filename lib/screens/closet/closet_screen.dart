@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'category_screen.dart';
 
 class ClosetScreen extends StatelessWidget {
   const ClosetScreen({super.key});
 
-  final List<String> categories = [
+  final List<String> categories = const [
     'Hijabs',
     'Undershirts',
     'Shirts',
@@ -25,7 +26,17 @@ class ClosetScreen extends StatelessWidget {
         ),
         itemCount: categories.length,
         itemBuilder: (context, index) {
-          return Card(child: Center(child: Text(categories[index])));
+          return Card(
+            child: InkWell(
+              onTap: () {
+                Navigator.push( 
+                  context,
+                  MaterialPageRoute(  builder: (context) => CategoryScreen(categoryName: categories[index]),),
+                );
+              },
+              child: Center(child: Text(categories[index])),
+            ),
+          );
         },
       ),
     );
