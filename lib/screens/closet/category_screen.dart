@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'add_new_clothes_screen.dart';
 
 class CategoryScreen extends StatelessWidget {
   final String categoryName;
@@ -11,6 +12,12 @@ class CategoryScreen extends StatelessWidget {
       //basic structure of the screen
       appBar: AppBar(title: Text(categoryName)),
       body: Center(child: Text('No clothes added yet')),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+         Navigator.push(context, MaterialPageRoute(builder:(context)=>AddNewClothesScreen()));
+        },
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
