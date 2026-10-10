@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
 
 class AddNewClothesScreen extends StatefulWidget {
   const AddNewClothesScreen({super.key});
@@ -30,6 +31,15 @@ class _AddNewClothesScreenState extends State<AddNewClothesScreen> {
         _image = image;
       });
     }
+  }
+
+  Future<String?> _saveImage() async {
+    final directory = await getApplicationDocumentsDirectory();
+    final path = directory.path;
+    final fileName = '${DateTime.now().millisecondsSinceEpoch}.jpg';
+
+    final savedImage = await File(_image!.path).copy('$path/$fileName');
+    return savedImage.path;
   }
 
   @override
@@ -124,10 +134,15 @@ class _AddNewClothesScreenState extends State<AddNewClothesScreen> {
             const SizedBox(height: 20),
 
             ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
+                String? imagePath;
+
+                if (_image != null) {
+                  imagePath = await _saveImage();
+                }
+
                 Navigator.pop(context, {
-                  
-                  'image': _image,
+                  'image': imagePath,
                   'color': _color,
                   'style': _style,
                   'season': _season,
